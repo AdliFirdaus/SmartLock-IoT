@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "author": "SmartLock",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": -195.2,
+      "left": 178.4,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": 200, "left": 300, "attrs": {} },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": -199.2, "left": -113.4, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo", "top": 46, "left": 374.4, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led_green",
+      "top": 100,
+      "left": -120,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_red",
+      "top": 150,
+      "left": -120,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-resistor", "id": "r1", "top": 100, "left": -60, "attrs": { "value": "330" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 150, "left": -60, "attrs": { "value": "330" } }
+  ],
+  "connections": [
+    [ "esp:D21", "lcd:SDA", "blue", [] ],
+    [ "esp:D22", "lcd:SCL", "yellow", [] ],
+    [ "keypad1:R1", "esp:D13", "green", [] ],
+    [ "keypad1:R2", "esp:D12", "green", [] ],
+    [ "keypad1:R3", "esp:D14", "green", [] ],
+    [ "keypad1:R4", "esp:D27", "green", [] ],
+    [ "keypad1:C1", "esp:D26", "blue", [] ],
+    [ "keypad1:C2", "esp:D25", "blue", [] ],
+    [ "keypad1:C3", "esp:D33", "blue", [] ],
+    [ "keypad1:C4", "esp:D32", "blue", [] ],
+    [ "esp:D23", "buzzer:1", "purple", [] ],
+    [ "esp:GND.1", "buzzer:2", "black", [] ],
+    [ "esp:D18", "r1:1", "green", [] ],
+    [ "r1:2", "led_green:A", "green", [] ],
+    [ "led_green:K", "esp:GND.2", "black", [] ],
+    [ "esp:D19", "r2:1", "red", [] ],
+    [ "r2:2", "led_red:A", "red", [] ],
+    [ "led_red:K", "esp:GND.3", "black", [] ],
+    [ "esp:D4", "servo:PWM", "orange", []],
+    [ "esp:GND.4", "servo:GND", "black", [] ],
+    [ "esp:3V3", "servo:V+", "red", [] ]
+  ],
+  "dependencies": {}
+}
