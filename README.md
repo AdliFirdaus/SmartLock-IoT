@@ -26,7 +26,7 @@ python smartlock_face.py
 ```
 
 ### 2. Wokwi Simulation
-Open project at: https://wokwi.com/projects/464814871267430401
+Open project at: https://wokwi.com/projects/465608953529417729
 
 ### 3. Node-RED Dashboard
 ```bash
